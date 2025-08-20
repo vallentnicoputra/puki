@@ -20,6 +20,7 @@ var { color } = require('./lib/color.js')
 
 const { isAuthenticated } = require('./lib/auth');
 const { connectMongoDb } = require('./MongoDB/mongodb');
+const path = require('path'),
 const { resetAllLimit, getApikey } = require('./MongoDB/function');
 var apirouter = require('./routes/api'),
     mainrouter = require('./routes/main'),
@@ -72,6 +73,14 @@ app.use(function(req, res, next) {
   next();
 })
 
+
+
+// ...
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); // ⬅️ tambahin ini
+app.use(expressLayout);
+app.use(express.static(path.join(__dirname, 'assets'))); // ⬅️ biar aman
 app.get('/', (req, res) => {
     res.render('home', {
     layout: 'home'
