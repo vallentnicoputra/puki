@@ -20,7 +20,7 @@ var { color } = require('./lib/color.js')
 
 const { isAuthenticated } = require('./lib/auth');
 const { connectMongoDb } = require('./MongoDB/mongodb');
-const path = require('path'),
+const path = require('path');
 const { resetAllLimit, getApikey } = require('./MongoDB/function');
 var apirouter = require('./routes/api'),
     mainrouter = require('./routes/main'),
